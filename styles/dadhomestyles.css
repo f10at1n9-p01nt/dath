@@ -1,3 +1,8 @@
+body {
+	background-color: rgb(228, 228, 228);
+	font-family: Raleway;
+}
+
 nav {
 	display: block;
 	background-color: #aeaca8;
@@ -21,6 +26,7 @@ nav li {
 	margin-right: 40px;
 	font-size: 18px;
 	font-family: Raleway;
+	/* font-weight: 900; */
 }
 
 nav li a {
@@ -34,4 +40,21 @@ a {
 h1 {
 	text-align: center;
 	font-family: Raleway;
+}
+
+#drawful {
+	width: 100%; /* Why is this necessary? */
+	border-radius: 8px;
+	padding-top: 5px;
+	border: 1px solid ddd;
+	padding: 5px;
+}
+
+.optionImage {
+	width: 20%;
+	text-align: center;
+}
+
+#drawful:hover {
+	box-shadow: 0 0 2px 1px #aeaca8;
 }
