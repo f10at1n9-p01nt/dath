@@ -1,5 +1,6 @@
 const submitted = document.querySelector('form');
 const ul = document.querySelector('ul');
+const button = document.querySelector('button');
 todoList = [];
 
 // function addItem() {
@@ -25,6 +26,7 @@ todoList = [];
 // });
 
 function addItem(selection, text) {
+	//Creates new todo item with 'text' as the item.
 	const newLi = document.createElement('li');
 	const newCheckbox = document.createElement('input');
 	newCheckbox.type = 'checkbox';
@@ -52,6 +54,11 @@ ul.addEventListener('change', function(event) {
 		theLi.classList.toggle('completed');
 	}
 	console.log(event.path[1]);
+});
+
+button.addEventListener('click', function(event) {
+	localStorage.clear();
+	ul.textContent = '';
 });
 
 let jsonArray = JSON.parse(localStorage.getItem('todoList'));
