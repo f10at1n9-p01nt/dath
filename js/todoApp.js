@@ -57,6 +57,10 @@ ul.addEventListener('change', function(event) {
 });
 
 button.addEventListener('click', function(event) {
+	button.classList.toggle('notPressed');
+	setTimeout(function() {
+		button.classList.toggle('notPressed');
+	}, 200);
 	localStorage.clear();
 	ul.textContent = '';
 });
