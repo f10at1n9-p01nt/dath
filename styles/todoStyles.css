@@ -58,3 +58,7 @@ h2 {
 #newtodo:hover {
 	background-color: #ebbbd3;
 }
+
+.completed {
+	text-decoration: line-through;
+}

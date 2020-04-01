@@ -9,12 +9,22 @@ function addItem() {
 	newCheckbox.value = 1;
 
 	newLi.innerText = newTodoInput.value;
+	newLi.classList.add('completed');
+	newLi.classList.toggle('completed');
 	ul.append(newLi);
-	newLi.append(newCheckbox);
+	newLi.prepend(newCheckbox);
 	newTodoInput.value = '';
 }
 
 submitted.addEventListener('submit', function(event) {
 	event.preventDefault();
 	addItem();
+});
+
+ul.addEventListener('change', function(event) {
+	if (event.target.tagName === 'INPUT') {
+		theLi = event.path[1];
+		theLi.classList.toggle('completed');
+	}
+	console.log(event.path[1]);
 });
