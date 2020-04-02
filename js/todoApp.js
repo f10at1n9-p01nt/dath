@@ -44,11 +44,26 @@ function addItem(selection, text) {
 submitted.addEventListener('submit', function(event) {
 	event.preventDefault();
 	const newTodoInput = document.querySelector('input[name="newtodo"]');
-	if (newTodoInput.value) {
+	// Make sure doesn't start with whitespace or empty
+	if (checkInput(newTodoInput.value)) {
 		addItem(newTodoInput, newTodoInput.value);
 		localStorage.setItem('todoList', JSON.stringify(todoList));
 	}
 });
+
+// Validates that input is not blank or starts with spaces
+function checkInput(value) {
+	// First check if user has entered text
+	if (!value) {
+		return false;
+	}
+	// Then check if removing whitespace still has a value
+	const trimmed = value.trim();
+	if (trimmed) {
+		return true;
+	}
+	return false;
+}
 
 ul.addEventListener('change', function(event) {
 	if (event.target.tagName === 'INPUT') {
