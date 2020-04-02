@@ -44,8 +44,10 @@ function addItem(selection, text) {
 submitted.addEventListener('submit', function(event) {
 	event.preventDefault();
 	const newTodoInput = document.querySelector('input[name="newtodo"]');
-	addItem(newTodoInput, newTodoInput.value);
-	localStorage.setItem('todoList', JSON.stringify(todoList));
+	if (newTodoInput.value) {
+		addItem(newTodoInput, newTodoInput.value);
+		localStorage.setItem('todoList', JSON.stringify(todoList));
+	}
 });
 
 ul.addEventListener('change', function(event) {
