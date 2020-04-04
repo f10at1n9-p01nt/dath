@@ -24,6 +24,7 @@ const submitted = document.querySelector('form');
 const ul = document.querySelector('ul');
 const button = document.querySelector('button');
 todoList = [];
+let jsonArray = JSON.parse(localStorage.getItem('todoList'));
 
 function addItem(selection, text) {
 	//Creates new todo item with 'text' as the item.
@@ -78,6 +79,9 @@ ul.addEventListener('change', function(event) {
 
 ul.addEventListener('click', function(event) {
 	if (event.target.tagName === 'BUTTON') {
+		idx = todoList.indexOf(event.target.previousSibling.textContent);
+		todoList.splice(idx, 1);
+		localStorage.setItem('todoList', JSON.stringify(todoList));
 		event.target.parentElement.remove();
 	}
 });
@@ -88,10 +92,10 @@ button.addEventListener('click', function(event) {
 		button.classList.toggle('notPressed');
 	}, 200);
 	localStorage.clear();
+	todoList = [];
 	ul.textContent = '';
 });
 
-let jsonArray = JSON.parse(localStorage.getItem('todoList'));
 if (jsonArray.length > 0) {
 	for (todo of jsonArray) {
 		item = document.createElement('input');
