@@ -12,6 +12,7 @@ h1 {
 
 #todoItems {
 	float: left;
+	width: 50%;
 }
 
 ul {
@@ -75,4 +76,14 @@ button {
 
 .notPressed {
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.delete {
+	margin-left: 1%;
+	margin-top: 2%;
+	background-color: #f53794;
+	color: #0941aa;
+	border-color: #0941aa;
+	border-radius: 4px;
+	font-size: 10px;
 }
