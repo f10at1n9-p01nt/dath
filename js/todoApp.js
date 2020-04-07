@@ -70,8 +70,10 @@ function checkInput(value) {
 	return false;
 }
 
+// Mark an item as complete
 ul.addEventListener('change', function(event) {
 	if (event.target.tagName === 'INPUT') {
+		console.log(event);
 		theLi = event.path[1];
 		theLi.classList.toggle('completed');
 	}
