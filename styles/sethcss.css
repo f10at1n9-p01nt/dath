@@ -1,5 +1,6 @@
 h1 {
 	color: rgba(189, 12, 12, 0.904);
+	font-family: "Permanent Marker";
 }
 
 body {
@@ -10,6 +11,7 @@ a {
 	color: white;
 	font-size: 25px;
 	text-decoration: none;
+	font-family: "Abril Fatface";
 }
 
 ul {
@@ -17,7 +19,6 @@ ul {
 }
 
 a:hover {
-	font-size: 2em;
 	color: rgba(135, 11, 160, 0.61);
 }
 
@@ -30,4 +31,48 @@ nav ul {
 	margin-left: 0%;
 	background-color: rgba(158, 115, 22, 0.815);
 	padding: 5px 0 5px 0;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	font-family: "Abril Fatface";
+	display: none;
+	position: absolute;
+	background-color: rgba(158, 115, 22, 0.815);
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	margin-top: 5px;
+}
+
+.dropdown-content a {
+	color: white;
+	font-family: "Press Start 2P";
+	padding: 10px 16px;
+	text-decoration: none;
+	display: block;
+	font-size: 14px;
+}
+
+.dropdown-content a:hover {
+	background-color: rgba(135, 11, 160, 0.61);
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropLi {
+	font-family: "Abril Fatface";
+	color: white;
+	padding: 16px;
+	font-size: 25px;
+	border: none;
+}
+
+.dropLi:hover {
+	color: rgba(135, 11, 160, 0.61);
 }
