@@ -1,6 +1,6 @@
 html,
 body {
-	background-color: rgb(121, 22, 22);
+	background-color: darkslategray;
 	height: 90%;
 }
 
@@ -44,17 +44,13 @@ body {
 }
 
 .new-problem {
-	/* float: left; */
-	/* padding: 2em;
-    width: 25%; */
-	/* grid-area: a; */
+	background-color: lightslategray;
+	color: white;
 }
 
 .check {
-	/* padding: 2em;
-	/* float: right; */
-	/* width: 25%; */
-	/* grid-area: c; */
+	background-color: lightslategray;
+	color: white;
 }
 
 .button-0 {

@@ -14,22 +14,23 @@ buttonsContainer.addEventListener('click', function(evt) {
 	evt.preventDefault();
 	if (evt.target.classList.contains('number')) {
 		answer.innerHTML += evt.target.textContent;
-	} else if (evt.target.classList.contains('new-problem')) {
-		evt.preventDefault();
-		console.log('new');
-		answer.innerHTML = '';
-		userFeedback.innerHTML = '';
-
-		let question = generateQuestion();
-		buildCard(question);
-	} else {
-		evt.preventDefault();
-
-		// Here I retrieve it to pass to checkResponse
-		let message = checkResponse(questionAnswer.innerHTML, answer.innerHTML);
-
-		userFeedback.innerHTML = message;
 	}
+});
+
+newProblem.addEventListener('click', function(evt) {
+	evt.preventDefault();
+	answer.innerHTML = '';
+	userFeedback.innerHTML = '';
+
+	let question = generateQuestion();
+	buildCard(question);
+});
+
+checkButton.addEventListener('click', function(evt) {
+	evt.preventDefault();
+	let message = checkResponse(questionAnswer.innerHTML, answer.innerHTML);
+
+	userFeedback.innerHTML = message;
 });
 
 function generateQuestion() {
