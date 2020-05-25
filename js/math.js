@@ -5,33 +5,31 @@ const buttonsContainer = document.querySelector('.buttons-grid');
 const display = document.querySelector('.card');
 const answer = document.querySelector('.digit');
 const questionP = document.querySelector('.question');
-const h1 = document.querySelector('h1');
+const userFeedback = document.querySelector('h1');
 const newProblem = document.querySelector('.new-problem');
 const checkButton = document.querySelector('.check');
 const questionAnswer = document.querySelector('.hidden');
 
 buttonsContainer.addEventListener('click', function(evt) {
 	evt.preventDefault();
-	let number = evt.target.textContent;
+	if (evt.target.classList.contains('number')) {
+		answer.innerHTML += evt.target.textContent;
+	} else if (evt.target.classList.contains('new-problem')) {
+		evt.preventDefault();
+		console.log('new');
+		answer.innerHTML = '';
+		userFeedback.innerHTML = '';
 
-	answer.innerHTML += number;
-});
+		let question = generateQuestion();
+		buildCard(question);
+	} else {
+		evt.preventDefault();
 
-newProblem.addEventListener('click', function(evt) {
-	evt.preventDefault();
-	answer.innerHTML = '';
-	h1.innerHTML = '';
+		// Here I retrieve it to pass to checkResponse
+		let message = checkResponse(questionAnswer.innerHTML, answer.innerHTML);
 
-	let question = generateQuestion();
-	buildCard(question);
-});
-
-checkButton.addEventListener('click', function(evt) {
-	evt.preventDefault();
-
-	let message = checkResponse(questionAnswer.innerHTML, answer.innerHTML);
-
-	h1.innerHTML = message;
+		userFeedback.innerHTML = message;
+	}
 });
 
 function generateQuestion() {
@@ -39,6 +37,7 @@ function generateQuestion() {
 	const secondNumber = Math.floor(Math.random() * 13);
 	const correctAnswer = firstNumber * secondNumber;
 
+	// Here I store the answer in the DOM
 	questionAnswer.innerHTML = correctAnswer;
 
 	return {
