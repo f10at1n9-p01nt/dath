@@ -5,22 +5,22 @@ const buttonsContainer = document.querySelector('.buttons-grid');
 const display = document.querySelector('.card');
 const answer = document.querySelector('.digit');
 const questionP = document.querySelector('.question');
-const h1 = document.querySelector('h1');
+const userFeedback = document.querySelector('h1');
 const newProblem = document.querySelector('.new-problem');
 const checkButton = document.querySelector('.check');
 const questionAnswer = document.querySelector('.hidden');
 
 buttonsContainer.addEventListener('click', function(evt) {
 	evt.preventDefault();
-	let number = evt.target.textContent;
-
-	answer.innerHTML += number;
+	if (evt.target.classList.contains('number')) {
+		answer.innerHTML += evt.target.textContent;
+	}
 });
 
 newProblem.addEventListener('click', function(evt) {
 	evt.preventDefault();
 	answer.innerHTML = '';
-	h1.innerHTML = '';
+	userFeedback.innerHTML = '';
 
 	let question = generateQuestion();
 	buildCard(question);
@@ -28,10 +28,9 @@ newProblem.addEventListener('click', function(evt) {
 
 checkButton.addEventListener('click', function(evt) {
 	evt.preventDefault();
-
 	let message = checkResponse(questionAnswer.innerHTML, answer.innerHTML);
 
-	h1.innerHTML = message;
+	userFeedback.innerHTML = message;
 });
 
 function generateQuestion() {
@@ -39,6 +38,7 @@ function generateQuestion() {
 	const secondNumber = Math.floor(Math.random() * 13);
 	const correctAnswer = firstNumber * secondNumber;
 
+	// Here I store the answer in the DOM
 	questionAnswer.innerHTML = correctAnswer;
 
 	return {
